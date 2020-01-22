@@ -4,7 +4,7 @@
         <div class="card-content">
             <div v-if="title" class="card-title">{{title}}</div>
             <div v-if="subtitle" class="card-subtitle">{{subtitle}}</div>
-            <div v-if="text" class="card-text">{{text}}</div>
+            <div v-if="text" v-html="text" class="card-text">{{text}}</div>
             <slot />
         </div>
     </div>

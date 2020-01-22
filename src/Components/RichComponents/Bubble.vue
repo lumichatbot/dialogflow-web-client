@@ -4,6 +4,7 @@
 
 <style lang="sass" scoped>
 .bubble
+    margin: 5px 0
     padding: 12px
     border-radius: 40px
     color: var(--text)

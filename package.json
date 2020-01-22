@@ -3,19 +3,18 @@
   "version": "2.6.2",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve --open",
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "dialogflow-gateway": "0.0.7",
     "langs": "^2.0.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@mishushakov/eslint-config": "^1.0.6",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-plugin-pwa": "^3.11.0",

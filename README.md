@@ -1,16 +1,10 @@
 ![Dialogflow for Web v2](https://i.imgur.com/J8aTIwt.png)
 
-# Dialogflow for Web *v2*
-
-> [Dialogflow](https://dialogflow.com) lets you build conversational interfaces on top of your products and services by providing a powerful natural language understanding (NLU) engine to process and understand natural language input
+# Dialogflow Client for Web
 
 This is a unofficial Web Integration for the Dialogflow V2
 
-The development of the project is done by [mishushakov](https://github.com/mishushakov) in his free-time. If you want to support, click the "Sponsor" button:
-
-![Support Dialogflow for Web v2](https://i.imgur.com/adRvGaY.png)
-
-If you have any questions, feel free to [contact](https://ushakov.co/#contact)
+This project was forked from [mishushakov](https://github.com/mishushakov/dialogflow-web-v2) project, which he develops in his free-time. If you want to support, check out his project.
 
 ## Features
 
@@ -29,9 +23,6 @@ If you have any questions, feel free to [contact](https://ushakov.co/#contact)
 - Free and fully Documented
 - Made in Germany
 - Recommended by [Dialogflow](https://twitter.com/Dialogflow/status/923976390201847809) and [MadeWithVueJS](https://twitter.com/MadeWithVueJS/status/1130147606666063875):
-
-![](https://i.imgur.com/yWv9mBu.png)
-![](https://i.imgur.com/N70Kl62.png)
 
 ### New in this version
 
@@ -60,15 +51,6 @@ If you have any questions, feel free to [contact](https://ushakov.co/#contact)
 
 ## [Read the license](LICENSE)
 
-## Set up Dialogflow Gateway (backend)
-
-Dialogflow Gateway enables third-party integrations like this one to securely access the Dialogflow V2 API
-
-- [Documentation](https://github.com/mishushakov/dialogflow-gateway-docs)
-- [Implementations](https://github.com/mishushakov/dialogflow-gateway-docs#implementations)
-
-`AD` [Dialogflow Gateway by Ushakov (Hosted)](https://dialogflow.cloud.ushakov.co) is the quickest way to get started with Dialogflow for Web v2
-
 ## Clone the repository
 
 You can use git or download from GitHub
@@ -91,14 +73,12 @@ Using yarn
 
 Open `config.js` and change the `gateway` variable to your Dialogflow Gateway URL
 
-Hint: the URL for [Dialogflow Gateway Hosted by Ushakov](https://dialogflow.cloud.ushakov.co) is always your google cloud project id + `.gateway.dialogflow.cloud.ushakov.co`. If you have any troubles, make sure you connected your Agent to the Gateway, then visit the [console](https://dialogflow.cloud.ushakov.co/console/), click on "Manage" and copy the Gateway URL
-
 Example
 
 ```js
 export default {
     app: {
-        gateway: "https://dialogflow-web-v2.gateway.dialogflow.cloud.ushakov.co"
+        gateway: "https://lumi-webhook.herokuapp.com/"
         [...]
     }
 }
@@ -129,18 +109,6 @@ Using npm
 Using yarn
 
 `yarn serve --port 9090`
-
-**PLEASE DO NOT USE THE DEVELOPMENT SERVER TO SERVE YOUR APP FOR VISITORS, DEVELOPMENT SERVER IS MEANT FOR THE DEVELOPMENT. PLEASE UPLOAD BUILD ARTIFACTS TO A STATIC WEB-SERVER**
-
-## Theming
-
-You can make a custom theme for Dialogflow for Web v2, according to the specification:
-
-![Theme Dialogflow for Web v2](https://svgur.com/i/E0R.svg)
-
-To apply the variables, open `src/components/App/Theme.sass` and change them in the `\:root` selector
-
-You can also optimize your theme for Dark-mode-enabled clients within the same file and selector under the `@media (prefers-color-scheme: dark)`
 
 ## Building
 

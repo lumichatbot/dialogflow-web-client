@@ -1,31 +1,30 @@
 <template>
-    <div class="overlay">
-        <!-- Agent Icon -->
-        <img v-if="app.avatarUri" class="app-icon" :alt="app.displayName" :src="'https://storage.googleapis.com/cloudprod-apiai/' + app.avatarUri">
-        <img v-else class="app-icon" src="https://console.dialogflow.com/api-client/assets/img/logo-short.png" :alt="app.displayName">
+<div class="overlay">
+    <!-- Agent Icon -->
+    <img v-if="app.avatarUri" class="app-icon" :alt="app.displayName" :src="app.avatarUri">
+    <img v-else class="app-icon" src="https://console.dialogflow.com/api-client/assets/img/logo-short.png"
+      :alt="app.displayName">
 
-        <!-- Agent Title -->
-        <h1 class="app-title">{{(config.i18n[sel_lang] && config.i18n[sel_lang].welcomeTitle) || config.i18n[config.app.fallback_lang].welcomeTitle}} {{app.displayName}}</h1>
+    <!-- Agent Title -->
+    <h1 class="app-title">
+        {{(config.i18n[sel_lang] && config.i18n[sel_lang].welcomeTitle) || config.i18n[config.app.fallback_lang].welcomeTitle}}
+        {{app.displayName}}</h1>
 
-        <!-- Agent Description -->
-        <p class="app-description">{{app.description}}</p>
+    <!-- Agent Description -->
+    <p class="app-description">{{app.description}}</p>
 
-        <!-- Language picker, when your Agent supports more than one Language -->
-        <div v-if="app.supportedLanguageCodes && app.supportedLanguageCodes.length > 0">
-            <button class="language-picker" role="checkbox" :class="{'picked': sel_lang == app.defaultLanguageCode}" @click="sel_lang = app.defaultLanguageCode">
-                {{app.defaultLanguageCode | toLang}}
-            </button>
-            <button
-                v-for="language in app.supportedLanguageCodes"
-                :key="language"
-                class="language-picker"
-                role="checkbox"
-                :class="{'picked': sel_lang == language}"
-                @click="sel_lang = language">
-                {{language | toLang}}
-            </button>
-        </div>
+    <!-- Language picker, when your Agent supports more than one Language -->
+    <div v-if="app.supportedLanguageCodes && app.supportedLanguageCodes.length > 0">
+        <button class="language-picker" role="checkbox" :class="{'picked': sel_lang == app.defaultLanguageCode}"
+          @click="sel_lang = app.defaultLanguageCode">
+            {{app.defaultLanguageCode | toLang}}
+        </button>
+        <button v-for="language in app.supportedLanguageCodes" :key="language" class="language-picker" role="checkbox"
+          :class="{'picked': sel_lang == language}" @click="sel_lang = language">
+            {{language | toLang}}
+        </button>
     </div>
+</div>
 </template>
 
 <style lang="sass" scoped>
@@ -76,7 +75,7 @@ export default {
     name: 'Welcome',
     filters: {
         /* This filter turns language code to the local language name using the langs dependency (example "en" -> "English") */
-        toLang(code){
+        toLang(code) {
             return langs.where('1', code).local
         }
     },
@@ -86,14 +85,14 @@ export default {
             required: true
         }
     },
-    data(){
+    data() {
         return {
             sel_lang: ''
         }
     },
     watch: {
         /* Save selected language */
-        sel_lang(lang){
+        sel_lang(lang) {
             if (this.history()) localStorage.setItem('lang', lang)
 
             else {
@@ -102,12 +101,10 @@ export default {
         }
     },
     /* Set default language on load (or fallback) */
-    created(){
-        if (this.app && this.app.defaultLanguageCode){
+    created() {
+        if (this.app && this.app.defaultLanguageCode) {
             this.sel_lang = this.app.defaultLanguageCode
-        }
-
-        else {
+        } else {
             this.sel_lang = this.config.app.fallback_lang
         }
     }
